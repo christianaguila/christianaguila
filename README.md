@@ -16,6 +16,13 @@ A 3-module AI receptionist system for dental clinics, built for the Philippine m
 
 **Stack:** n8n (self-hosted), Claude API, Facebook Messenger API, Google Calendar API, Google Sheets, Docker, Traefik
 
+**Key technical decisions:**
+- `[BOOKED]` prefix convention on calendar events for reliable filtering across all modules
+- `MESSAGE_TAG` + `CONFIRMED_EVENT_UPDATE` to bypass Facebook's 24-hour messaging window
+- Generic Credential Type with Bearer token for outbound Messenger (n8n's native Facebook credential rejects Page Access Tokens)
+- AI Agent node with Buffer Window memory for multi-turn conversations
+- Separate workflows per module for independent debugging and multi-client deployment
+
 ---
 
 ## All Projects
